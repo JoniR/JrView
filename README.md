@@ -1,39 +1,26 @@
-# node-js-getting-started
+# JrView for open Energy Data
 
-A barebones Node.js app using [Express 4](http://expressjs.com/).
-
-This application supports the [Getting Started with Node on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs) article - check it out.
+Electricity information in Finland based on the real-time measurements in Fingrid's operation control system. The data is updated every 3 minute.
 
 ## Running Locally
 
 Make sure you have [Node.js](http://nodejs.org/) and the [Heroku Toolbelt](https://toolbelt.heroku.com/) installed.
 
 ```sh
-$ git clone git@github.com:heroku/node-js-getting-started.git # or clone your own fork
-$ cd node-js-getting-started
 $ npm install
-$ npm start
+$ heroku local web
 ```
 
 Your app should now be running on [localhost:5000](http://localhost:5000/).
 
-## Deploying to Heroku
+## Deploying to Heroku via Github
 
 ```
-$ heroku create
-$ git push heroku master
-$ heroku open
+$ git add .
+$ git commit -m "description"
+$ git push origin master
 ```
-or
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+## About
 
-## Documentation
-
-For more information about using Node.js on Heroku, see these Dev Center articles:
-
-- [Getting Started with Node.js on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
-- [Heroku Node.js Support](https://devcenter.heroku.com/articles/nodejs-support)
-- [Node.js on Heroku](https://devcenter.heroku.com/categories/nodejs)
-- [Best Practices for Node.js Development](https://devcenter.heroku.com/articles/node-best-practices)
-- [Using WebSockets on Heroku with Node.js](https://devcenter.heroku.com/articles/node-websockets)
+This project was my personal experimental towards open source world and freebies. I like to see what you can really do without buying anything. Idea came to my mind when Finnish electricity transmission operator published some of their data via open data application interfaces. This application is not intend to be production level at any point.
