@@ -1,7 +1,6 @@
 window.onload = function () {
 
     GetLatestConsumption().success(function (result) {
-        console.log(result);
         var mydiv = document.getElementById("last_consumption");
         document.getElementById("last_consumption").innerHTML = "";
         var newcontent = document.createElement('div');
@@ -10,7 +9,6 @@ window.onload = function () {
     });
 
     GetLatestProduction().success(function (result) {
-        console.log(result);
         var mydiv = document.getElementById("last_production");
         document.getElementById("last_production").innerHTML = "";
         var newcontent = document.createElement('div');
@@ -170,7 +168,7 @@ function GetLatestConsumption() {
     promise.success = promise.done;
     promise.error = promise.fail;
 
-    var jqxhr = $.getJSON("http://localhost:5000/api/lastconsumption", {});
+    var jqxhr = $.getJSON("api/lastconsumption", {});
 
     jqxhr.done(function (data, status, xhr) {
         deferred.resolve(data, status, xhr);
@@ -190,7 +188,7 @@ function GetLatestProduction() {
     promise.success = promise.done;
     promise.error = promise.fail;
 
-    var jqxhr = $.getJSON("http://localhost:5000/api/lastproduction", {});
+    var jqxhr = $.getJSON("/api/lastproduction", {});
 
     jqxhr.done(function (data, status, xhr) {
         deferred.resolve(data, status, xhr);
