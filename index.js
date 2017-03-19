@@ -68,3 +68,27 @@ app.get("/api/lastproduction", function(req, res) {
     }
   });
 });
+
+app.get("/api/lastfrequency", function(req, res) {
+  db.collection(data).find({}).toArray(function(err, docs) {
+    if (err) {
+      handleError(res, err.message, "Failed to get data.");
+    } else {
+      //res.status(200).json(docs);
+        // Mockup data
+        res.status(200).json([{"value":49.975368,"end_time":"2017-03-19T13:51:00+0200","start_time":"2017-03-19T13:51:00+0200"}]);
+    }
+  });
+});
+
+app.get("/api/lastbalance", function(req, res) {
+  db.collection(data).find({}).toArray(function(err, docs) {
+    if (err) {
+      handleError(res, err.message, "Failed to get data.");
+    } else {
+      //res.status(200).json(docs);
+        // Mockup data
+        res.status(200).json([{"value":201.50934,"end_time":"2017-03-19T13:51:00+0200","start_time":"2017-03-19T13:51:00+0200"}]);
+    }
+  });
+});

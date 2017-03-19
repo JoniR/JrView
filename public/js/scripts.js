@@ -16,6 +16,22 @@ window.onload = function () {
         mydiv.appendChild(newcontent.firstChild);
     });
 
+    GetLatestFrequency().success(function (result) {
+        var mydiv = document.getElementById("last_frequency");
+        document.getElementById("last_frequency").innerHTML = "";
+        var newcontent = document.createElement('div');
+        newcontent.innerHTML = result[0].value + " HZ";
+        mydiv.appendChild(newcontent.firstChild);
+    });
+
+    GetLatestBalance().success(function (result) {
+        var mydiv = document.getElementById("last_balance");
+        document.getElementById("last_balance").innerHTML = "";
+        var newcontent = document.createElement('div');
+        newcontent.innerHTML = result[0].value + " MW";
+        mydiv.appendChild(newcontent.firstChild);
+    });
+
 
     var Consumption_data = {
         labels: ["January", "February", "March", "April", "May", "June", "July"],
@@ -189,6 +205,44 @@ function GetLatestProduction() {
     promise.error = promise.fail;
 
     var jqxhr = $.getJSON("/api/lastproduction", {});
+
+    jqxhr.done(function (data, status, xhr) {
+        deferred.resolve(data, status, xhr);
+    });
+    jqxhr.fail(function (jqXHR, status, error) {
+        deferred.reject(jqXHR, status, error);
+    });
+    return promise;
+};
+function GetLatestFrequency() {
+    /* 
+    This function 
+    */
+    var deferred = new $.Deferred();
+    var promise = deferred.promise();
+    promise.success = promise.done;
+    promise.error = promise.fail;
+
+    var jqxhr = $.getJSON("/api/lastfrequency", {});
+
+    jqxhr.done(function (data, status, xhr) {
+        deferred.resolve(data, status, xhr);
+    });
+    jqxhr.fail(function (jqXHR, status, error) {
+        deferred.reject(jqXHR, status, error);
+    });
+    return promise;
+};
+function GetLatestBalance() {
+    /* 
+    This function 
+    */
+    var deferred = new $.Deferred();
+    var promise = deferred.promise();
+    promise.success = promise.done;
+    promise.error = promise.fail;
+
+    var jqxhr = $.getJSON("/api/lastbalance", {});
 
     jqxhr.done(function (data, status, xhr) {
         deferred.resolve(data, status, xhr);
