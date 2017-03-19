@@ -6,4 +6,4 @@ Please note that this file is listed on .gitignore
 
 var config = {};
 
-config.MONGODB_URI = '';
+config.MONGODB_URI = 'test';
