@@ -8,59 +8,216 @@
 
   <% include ../partials/nav.ejs %>
 
-<div class="jumbotron text-center">
-  <div class="container">
-    <a href="/" class="lang-logo">
-      <img src="/lang-logo.png">
-    </a>
-    <h1>Getting Started with Node on Heroku</h1>
-    <p>This is a sample Node application deployed to Heroku. It's a reasonably simple app - but a good foundation for understanding how to get the most out of the Heroku platform.</p>
-    <a type="button" class="btn btn-lg btn-default" href="https://devcenter.heroku.com/articles/getting-started-with-nodejs"><span class="glyphicon glyphicon-flash"></span> Getting Started with Node</a>
-    <a type="button" class="btn btn-lg btn-primary" href="https://github.com/heroku/node-js-getting-started"><span class="glyphicon glyphicon-download"></span> Source on GitHub</a>
-  </div>
-</div>
-<div class="container">
-  <div class="alert alert-info text-center" role="alert">
-    To deploy your own copy, and learn the fundamentals of the Heroku platform, head over to the <a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs" class="alert-link">Getting Started with Node on Heroku</a> tutorial.
-  </div>
-  <hr>
-  <div class="row">
-    <div class="col-md-6">
-      <h3><span class="glyphicon glyphicon-info-sign"></span> How this sample app works</h3>
-      <ul>
-        <li>This app was deployed to Heroku, either using Git or by using <a href="https://github.com/heroku/node-js-getting-started">Heroku Button</a> on the repository.</li>
+    <div id="fh5co-page">
+        <div id="fh5co-wrap">
+            <header id="fh5co-hero" data-section="home" role="banner" style="background: url(bg_2.jpg) top left; background-size: cover;">
+                <div class="fh5co-overlay"></div>
+                <div class="fh5co-intro">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6 fh5co-text">
+                                <h2 class="to-animate intro-animate-1">Open Electricity Data</h2>
+                                <p class="to-animate intro-animate-2">Electricity information in Finland based on the real-time measurements in Fingrid's operation control system. The data is updated every 3 minute.</p>
+                                <p class="to-animate intro-animate-3"><a href="#" data-nav-section="overview" class="btn btn-primary btn-md"><i class="ion-stats-bars"></i> Take a look</a></p>
+                            </div>
+                            <div class="col-md-6 text-right fh5co-intro-img to-animate intro-animate-4">
+                                <!--<i class="icon-huge ion-ios-bolt-outline" title="Open Electricity Data"></i> -->
+                                <!--<img src="images/iphone_6_3.png" alt="Outline Free HTML5 Responsive Bootstrap Template"> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- END .header -->
 
-        <li>When Heroku received the source code, it fetched all the dependencies in the <a href="https://github.com/heroku/node-js-getting-started/blob/master/package.json">package.json</a>, creating a deployable slug.</li>
-        <li>The platform then spins up a dyno, a lightweight container that provides an isolated environment in which the slug can be mounted and executed.</li>
-        <li>You can scale your app, manage it, and deploy over <a href="https://addons.heroku.com/">150 add-on services</a>, from the Dashboard or CLI.</li>
-      </ul>
-    </div>
-    <div class="col-md-6">
-      <h3><span class="glyphicon glyphicon-link"></span> Next Steps</h3>
-      <ul>
-        <li>If you are following the <a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs">Getting Started</a> guide, then please head back to the tutorial and follow the next steps!</li>
-        <li>If you deployed this app by deploying the Heroku Button, then in a command line shell, run:</li>
-        <ul>
-          <li><code>git clone https://github.com/heroku/node-js-getting-started.git</code> - this will create a local copy of the source code for the app</li>
-          <li><code>cd node-js-getting-started</code> - change directory into the local source code repository</li>
-          <li><code>heroku git:remote -a &lt;your-app-name></code> - associate the Heroku app with the repository</li>
-          <li>You'll now be set up to run the app locally, or <a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs#push-local-changes">deploy changes</a> to Heroku</li>
-        </ul>
-      </ul>
-      <h3><span class="glyphicon glyphicon-link"></span> Helpful Links</h3>
-      <ul>
-        <li><a href="https://www.heroku.com/home">Heroku</a></li>
-        <li><a href="https://devcenter.heroku.com/">Heroku Dev Center</a></li>
-        <li><a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs">Getting Started with Node on Heroku</a></li>
-        <li><a href="https://devcenter.heroku.com/articles/deploying-nodejs">Deploying Node Apps on Heroku</a></li>
-      </ul>
-    </div>
-  </div> <!-- row -->
-   <div class="alert alert-info text-center" role="alert">
-    Please do work through the Getting Started guide, even if you do know how to build such an application.  The guide covers the basics of working with Heroku, and will familiarize you with all the concepts you need in order to build and deploy your own apps.
-  </div>
-</div>
+            <div id="fh5co-main">
+                <div id="fh5co-clients">
+                    <div class="container">
+                        <div class="row text-center">
+                            <div class="col-md-3 col-sm-6 col-xs-6 to-animate">
+                                <figure class="fh5co-client"><i class="icon-lg ion-social-html5-outline" title="html 5"></i></figure>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-6 to-animate">
+                                <figure class="fh5co-client"><i class="icon-lg ion-social-sass" title="sass"></i></figure>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-6 to-animate">
+                                <figure class="fh5co-client"><i class="icon-lg ion-social-nodejs" title="nodejs"></i></figure>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-6 to-animate">
+                                <figure class="fh5co-client"><i class="icon-lg ion-social-css3-outline" title="css 3"></i></figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
+                <div id="fh5co-features" data-section="overview">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2 fh5co-section-heading text-center">
+                                <h2 class="fh5co-lead to-animate">Overview</h2>
+                                <p class="fh5co-sub to-animate">Overview of real time information of Finnish electricity network. Tap card to see graphs.</p>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12">
+                                <a href="#" data-nav-section="consumption" class="fh5co-feature to-animate">
+                                    <span class="fh5co-feature-icon"><i class="ion-ios-lightbulb-outline"></i></span>
+                                    <h3 class="fh5co-feature-lead">9469.270 MW</h3>
+                                    <p class="fh5co-feature-text">Electricity consumption in Finland</p>
+                                </a>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12">
+                                <a href="#" data-nav-section="production" class="fh5co-feature to-animate">
+                                    <span class="fh5co-feature-icon"><i class="ion-ios-sunny-outline"></i></span>
+                                    <h3 class="fh5co-feature-lead">7797 MW</h3>
+                                    <p class="fh5co-feature-text">Electricity production in Finland</p>
+                                </a>
+                            </div>
+                            <div class="clearfix visible-sm-block"></div>
+                            <div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12">
+                                <a href="#" data-nav-section="frequency" class="fh5co-feature to-animate">
+                                    <span class="fh5co-feature-icon"><i class="ion-ios-pulse"></i></span>
+                                    <h3 class="fh5co-feature-lead">49.975368 Hz</h3>
+                                    <p class="fh5co-feature-text">Frequency of the power system</p>
+                                </a>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12">
+                                <a href="#" data-nav-section="balance" class="fh5co-feature to-animate">
+                                    <span class="fh5co-feature-icon"><i class="ion-ios-shuffle"></i></span>
+                                    <h3 class="fh5co-feature-lead">201.50934 MW</h3>
+                                    <p class="fh5co-feature-text">Production surplus/deficit in Finland</p>
+                                </a>
+                            </div>
+
+                            <div class="clearfix visible-sm-block"></div>
+
+                            <div class="fh5co-spacer fh5co-spacer-sm"></div>
+
+                            <div class="col-md-4 col-md-offset-4 text-center to-animate">
+                                <a href="#" data-nav-section="consumption" class="btn btn-primary">View graphs</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="fh5co-features-2" data-section="consumption">
+                    <div class="fh5co-features-2-content">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-8 col-md-offset-2 fh5co-section-heading text-center">
+                                    <h2 class="fh5co-lead to-animate">Consumption</h2>
+                                    <p class="fh5co-sub to-animate">Electricity consumption in Finland based on the real-time measurements in Fingrid's operation control system. The data is updated every 3 minutes.</p>
+                                </div>
+                                <div class="col-md-11 col-md-offset-1 fh5co-section-heading text-center to-animate"><canvas id="Consumption"></canvas></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="fh5co-products" data-section="production">
+                    <div class="fh5co-features-2-content">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-8 col-md-offset-2 fh5co-section-heading text-center">
+                                    <h2 class="fh5co-lead to-animate">Production</h2>
+                                    <p class="fh5co-sub to-animate">Electricity production in Finland based on the real-time measurements in Fingrid's operation control system. The data is updated every 3 minutes.</p>
+                                </div>
+                                <div class="col-md-11 col-md-offset-1 fh5co-section-heading text-center to-animate"><canvas id="Production"></canvas></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="fh5co-features-2" data-section="frequency">
+                    <div class="fh5co-features-2-content">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-8 col-md-offset-2 fh5co-section-heading text-center">
+                                    <h2 class="fh5co-lead to-animate">Frequency</h2>
+                                    <p class="fh5co-sub to-animate">Electricity consumption in Finland based on the real-time measurements in Fingrid's operation control system. The data is updated every 3 minutes.</p>
+                                </div>
+                                <div class="col-md-11 col-md-offset-1 fh5co-section-heading text-center to-animate"><canvas id="Frequency"></canvas></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="fh5co-products" data-section="balance">
+                    <div class="fh5co-features-2-content">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-8 col-md-offset-2 fh5co-section-heading text-center">
+                                    <h2 class="fh5co-lead to-animate">Production surplus/deficit</h2>
+                                    <p class="fh5co-sub to-animate">Power deficit/surplus represents the balance between production and consumption in Finland, taking into account imports and exports. It is calculated as the difference between the measured net import/export and the confirmed net exchange program between Finland and the other Nordic countries.</p>
+                                </div>
+                                <div class="col-md-11 col-md-offset-1 fh5co-section-heading text-center to-animate"><canvas id="Prod_surplus"></canvas></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="fh5co-features-3" data-section="about">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2 fh5co-section-heading text-center">
+                                <h2 class="fh5co-lead animate-single features3-animate-1">About</h2>
+                                <p class="fh5co-sub animate-single features3-animate-2">This project was my personal experimental towards open source world and freebies. I like to see what you can really do without buying anything. Idea came to my mind when Finnish electricity transmission operator published some of their data via open data application interfaces. This application is not intend to be production level at any point. </p>
+                            </div>
+
+                            <div class="col-md-4 col-sm-6 text-center fh5co-text-wrap">
+                                <div class="fh5co-text to-animate">
+                                    <span class="fh5co-icon"><i class="ion-ios-cloud-outline"></i></span>
+                                    <h4 class="fh5co-uppercase-sm">Heroku Cloud Application Platform</h4>
+                                    <p>Heroku offers free plan which is ideal for experimenting with cloud applications in a limited sandbox.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6 text-center fh5co-text-wrap">
+                                <div class="fh5co-text to-animate">
+                                    <span class="fh5co-icon"><i class="ion-iphone"></i></span>
+                                    <h4 class="fh5co-uppercase-sm">Cross platform support</h4>
+                                    <p>Outline &mdash; A Free HTML5 Responsive Template by FREEHTML5.CO ensure mobile-first and responsive design </p>
+                                </div>
+                            </div>
+
+                            <div class="clearfix visible-sm-block"></div>
+
+                            <div class="col-md-4 col-sm-6 text-center fh5co-text-wrap">
+                                <div class="fh5co-text to-animate">
+                                    <span class="fh5co-icon"><i class="ion-ios-box-outline"></i></span>
+                                    <h4 class="fh5co-uppercase-sm">mLab MongoDB</h4>
+                                    <p>mLab offers free Sandbox plan a single database with 0.5 GB of storage on a shared database server. This is more than enough to save all data locally for this application</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-6 text-center fh5co-text-wrap">
+                                <div class="fh5co-text to-animate">
+                                    <span class="fh5co-icon"><i class="ion-ios-pulse"></i></span>
+                                    <h4 class="fh5co-uppercase-sm">Fingrid</h4>
+                                    <p>All data showed in this application is based on Fingrid Open data on the electricity market and the power system</p>
+                                </div>
+                            </div>
+
+                            <div class="clearfix visible-sm-block"></div>
+
+                            <div class="col-md-4 col-sm-6 text-center fh5co-text-wrap">
+                                <div class="fh5co-text to-animate">
+                                    <span class="fh5co-icon"><i class="ion-social-github-outline"></i></span>
+                                    <h4 class="fh5co-uppercase-sm">Github</h4>
+                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6 text-center fh5co-text-wrap">
+                                <div class="fh5co-text to-animate">
+                                    <span class="fh5co-icon"><i class="ion-social-linkedin-outline"></i></span>
+                                    <h4 class="fh5co-uppercase-sm">Blog post in LinkedIn</h4>
+                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>
