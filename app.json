@@ -1,7 +1,7 @@
 {
   "name": "JrView for open Energy Data",
   "description": "Show electricity information in Finland based on the real-time measurements in Fingrid's operation control system",
-  "repository": "https://github.com/heroku/node-js-getting-started",
+  "repository": "https://github.com/JoniR/JrView",
   "logo": "http://node-js-sample.herokuapp.com/node.svg",
   "keywords": ["node", "express", "static"],
   "image": "heroku/nodejs"
