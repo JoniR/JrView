@@ -1,5 +1,24 @@
 window.onload = function () {
 
+    GetLatestConsumption().success(function (result) {
+        console.log(result);
+        var mydiv = document.getElementById("last_consumption");
+        document.getElementById("last_consumption").innerHTML = "";
+        var newcontent = document.createElement('div');
+        newcontent.innerHTML = result[0].value + " MW";
+        mydiv.appendChild(newcontent.firstChild);
+    });
+
+    GetLatestProduction().success(function (result) {
+        console.log(result);
+        var mydiv = document.getElementById("last_production");
+        document.getElementById("last_production").innerHTML = "";
+        var newcontent = document.createElement('div');
+        newcontent.innerHTML = result[0].value + " MW";
+        mydiv.appendChild(newcontent.firstChild);
+    });
+
+
     var Consumption_data = {
         labels: ["January", "February", "March", "April", "May", "June", "July"],
         datasets: [
@@ -64,7 +83,7 @@ window.onload = function () {
                 fill: false,
                 lineTension: 0.1,
                 backgroundColor: "rgba(0, 127, 255, 0.4)",
-                borderColor: "rgba(0, 127, 255, 1)", 
+                borderColor: "rgba(0, 127, 255, 1)",
                 borderCapStyle: 'butt',
                 borderDash: [],
                 borderDashOffset: 0.0,
@@ -104,7 +123,7 @@ window.onload = function () {
                 display: true,
                 ticks: {
                     suggestedMax: 50.5,
-                    suggestedMin:49.5
+                    suggestedMin: 49.5
                 }
             }],
             xAxes: [{
@@ -133,11 +152,51 @@ window.onload = function () {
         data: Frequency_data,
         options: Frequency_options
     });
-    
-      var ctx = document.getElementById("Prod_surplus");
+
+    var ctx = document.getElementById("Prod_surplus");
     var myLineChart = new Chart(ctx, {
         type: 'line',
         data: Frequency_data,
         options: Frequency_options
     });
+};
+
+function GetLatestConsumption() {
+    /* 
+    This function 
+    */
+    var deferred = new $.Deferred();
+    var promise = deferred.promise();
+    promise.success = promise.done;
+    promise.error = promise.fail;
+
+    var jqxhr = $.getJSON("http://localhost:5000/api/lastconsumption", {});
+
+    jqxhr.done(function (data, status, xhr) {
+        deferred.resolve(data, status, xhr);
+    });
+    jqxhr.fail(function (jqXHR, status, error) {
+        deferred.reject(jqXHR, status, error);
+    });
+    return promise;
+};
+
+function GetLatestProduction() {
+    /* 
+    This function 
+    */
+    var deferred = new $.Deferred();
+    var promise = deferred.promise();
+    promise.success = promise.done;
+    promise.error = promise.fail;
+
+    var jqxhr = $.getJSON("http://localhost:5000/api/lastproduction", {});
+
+    jqxhr.done(function (data, status, xhr) {
+        deferred.resolve(data, status, xhr);
+    });
+    jqxhr.fail(function (jqXHR, status, error) {
+        deferred.reject(jqXHR, status, error);
+    });
+    return promise;
 };
