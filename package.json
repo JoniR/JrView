@@ -13,11 +13,12 @@
         "ejs": "2.4.1",
         "express": "4.13.3",
         "mongodb": "2.2.25",
-        "body-parser": "1.17.1"
+        "body-parser": "1.17.1",
+        "unirest": "0.5.1"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/heroku/node-js-getting-started"
+        "url": "https://github.com/JoniR/JrView"
     },
     "keywords": [
     "node",
