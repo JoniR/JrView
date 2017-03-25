@@ -24,3 +24,9 @@ $ git push origin master
 ## About
 
 This project was my personal experimental towards open source world and freebies. I like to see what you can really do without buying anything. Idea came to my mind when Finnish electricity transmission operator published some of their data via open data application interfaces. This application is not intend to be production level at any point.
+
+I started project by looking good template for user interface. I set few criterias for user interface:
+* responsive
+* based on Bootstrap
+* working and looking good also in mobile phone
+* free
