@@ -65,6 +65,66 @@ app.get("/api/lastconsumption", function (req, res) {
     });
 });
 
+app.get("/api/consumption", function (req, res) {
+    db.collection(data).find({
+        "variable": 193,
+        "start_time": {$gte:moment().startOf('day').subtract(2, 'hours').format()}
+    }).sort({
+        start_time: 1
+    }).toArray(function (err, docs) {
+        if (err) {
+            handleError(res, err.message, "Failed to get data.");
+        } else {
+            res.status(200).json(docs);
+        }
+    });
+});
+
+app.get("/api/production", function (req, res) {
+    db.collection(data).find({
+        "variable": 192,
+        "start_time": {$gte:moment().startOf('day').subtract(2, 'hours').format()}
+    }).sort({
+        start_time: 1
+    }).toArray(function (err, docs) {
+        if (err) {
+            handleError(res, err.message, "Failed to get data.");
+        } else {
+            res.status(200).json(docs);
+        }
+    });
+});
+
+app.get("/api/frequency", function (req, res) {
+    db.collection(data).find({
+        "variable": 177,
+        "start_time": {$gte:moment().startOf('day').subtract(2, 'hours').format()}
+    }).sort({
+        start_time: 1
+    }).toArray(function (err, docs) {
+        if (err) {
+            handleError(res, err.message, "Failed to get data.");
+        } else {
+            res.status(200).json(docs);
+        }
+    });
+});
+
+app.get("/api/balance", function (req, res) {
+    db.collection(data).find({
+        "variable": 198,
+        "start_time": {$gte:moment().startOf('day').subtract(2, 'hours').format()}
+    }).sort({
+        start_time: 1
+    }).toArray(function (err, docs) {
+        if (err) {
+            handleError(res, err.message, "Failed to get data.");
+        } else {
+            res.status(200).json(docs);
+        }
+    });
+});
+
 app.get("/api/lastproduction", function (req, res) {
     db.collection(data).find({
         "variable": 192
@@ -162,7 +222,6 @@ function getValuesFromFG(var_id) {
         for (var j in consumption) {
             consumption[j].variable = var_id;
 
-            /*
             db.collection('data').update({
                 "value": consumption[j].value,
                 "end_time": consumption[j].end_time,
@@ -176,20 +235,18 @@ function getValuesFromFG(var_id) {
             }, {
                 upsert: true
             }, function (err, records) {
-                if (err) throw err;
-                console.log("Values for " + var_id + " has been inserted to DB");
+                if (err) console.log(err);
             });
-            */
         }
-        
-        db.collection('data').insert(consumption, function (err, records) {
-            if (err) throw err;
-        });
-        
+
+        /* db.collection('data').insert(consumption, function (err, records) {
+             if (err) console.log(err);
+         });*/
+
         /* TODO
         This logic have one big fail.. it insert duplicate values every time when new set has been fetch. Anyway this is much faster than update.
         There we need to delete duplicate values
         */
-        
+
     });
 };
