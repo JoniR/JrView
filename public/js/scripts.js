@@ -1,6 +1,10 @@
-window.onload = function () {
+$(document).ready(function () {
+    setInterval(RefreshTiles, 3000);
+});
 
-    GetLatestConsumption().success(function (result) {
+function RefreshTiles() {
+    
+        GetLatestConsumption().success(function (result) {
         var mydiv = document.getElementById("last_consumption");
         document.getElementById("last_consumption").innerHTML = "";
         var newcontent = document.createElement('div');
@@ -31,7 +35,9 @@ window.onload = function () {
         newcontent.innerHTML = result[0].value + " MW";
         mydiv.appendChild(newcontent.firstChild);
     });
+};
 
+window.onload = function () {
 
     var Consumption_data = {
         labels: ["January", "February", "March", "April", "May", "June", "July"],
@@ -176,9 +182,6 @@ window.onload = function () {
 };
 
 function GetLatestConsumption() {
-    /* 
-    This function 
-    */
     var deferred = new $.Deferred();
     var promise = deferred.promise();
     promise.success = promise.done;
@@ -196,9 +199,6 @@ function GetLatestConsumption() {
 };
 
 function GetLatestProduction() {
-    /* 
-    This function 
-    */
     var deferred = new $.Deferred();
     var promise = deferred.promise();
     promise.success = promise.done;
@@ -215,9 +215,6 @@ function GetLatestProduction() {
     return promise;
 };
 function GetLatestFrequency() {
-    /* 
-    This function 
-    */
     var deferred = new $.Deferred();
     var promise = deferred.promise();
     promise.success = promise.done;
@@ -234,9 +231,6 @@ function GetLatestFrequency() {
     return promise;
 };
 function GetLatestBalance() {
-    /* 
-    This function 
-    */
     var deferred = new $.Deferred();
     var promise = deferred.promise();
     promise.success = promise.done;

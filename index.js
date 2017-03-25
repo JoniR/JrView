@@ -33,8 +33,8 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
     app.set('view engine', 'ejs');
 
     app.get('/', function (request, response) {
+        CheckLastValue();
         response.render('pages/index');
-        refreshData();
     });
 
     app.listen(app.get('port'), function () {
@@ -50,66 +50,59 @@ function handleError(res, reason, message, code) {
     });
 }
 
+
 app.get("/api/lastconsumption", function (req, res) {
-    db.collection(data).find({}).toArray(function (err, docs) {
+    db.collection(data).find({
+        "variable": 193
+    }).sort({
+        start_time: -1
+    }).limit(1).toArray(function (err, docs) {
         if (err) {
             handleError(res, err.message, "Failed to get data.");
         } else {
-            //res.status(200).json(docs);
-            // Mockup data
-            res.status(200).json([{
-                "value": 9599,
-                "end_time": "2017-03-19T13:51:00+0200",
-                "start_time": "2017-03-19T13:51:00+0200"
-            }]);
+            res.status(200).json(docs);
         }
     });
 });
 
 app.get("/api/lastproduction", function (req, res) {
-    db.collection(data).find({}).toArray(function (err, docs) {
+    db.collection(data).find({
+        "variable": 192
+    }).sort({
+        start_time: -1
+    }).limit(1).toArray(function (err, docs) {
         if (err) {
             handleError(res, err.message, "Failed to get data.");
         } else {
-            //res.status(200).json(docs);
-            // Mockup data
-            res.status(200).json([{
-                "value": 7617,
-                "end_time": "2017-03-19T13:51:00+0200",
-                "start_time": "2017-03-19T13:51:00+0200"
-            }]);
+            res.status(200).json(docs);
         }
     });
 });
 
 app.get("/api/lastfrequency", function (req, res) {
-    db.collection(data).find({}).toArray(function (err, docs) {
+    db.collection(data).find({
+        "variable": 177
+    }).sort({
+        start_time: -1
+    }).limit(1).toArray(function (err, docs) {
         if (err) {
             handleError(res, err.message, "Failed to get data.");
         } else {
-            //res.status(200).json(docs);
-            // Mockup data
-            res.status(200).json([{
-                "value": 49.975368,
-                "end_time": "2017-03-19T13:51:00+0200",
-                "start_time": "2017-03-19T13:51:00+0200"
-            }]);
+            res.status(200).json(docs);
         }
     });
 });
 
 app.get("/api/lastbalance", function (req, res) {
-    db.collection(data).find({}).toArray(function (err, docs) {
+    db.collection(data).find({
+        "variable": 198
+    }).sort({
+        start_time: -1
+    }).limit(1).toArray(function (err, docs) {
         if (err) {
             handleError(res, err.message, "Failed to get data.");
         } else {
-            //res.status(200).json(docs);
-            // Mockup data
-            res.status(200).json([{
-                "value": 201.50934,
-                "end_time": "2017-03-19T13:51:00+0200",
-                "start_time": "2017-03-19T13:51:00+0200"
-            }]);
+            res.status(200).json(docs);
         }
     });
 });
@@ -120,34 +113,15 @@ app.get("/api/refresh", function (req, res) {
         "val": CheckLastValue(),
         "foo": "bar"
     }]);
-    /*
-            app.get('/answers', function (req, res){
-             db.open(function(err,db){ // <------everything wrapped inside this function
-                 db.collection('answer', function(err, collection) {
-                     collection.find().toArray(function(err, items) {
-                         console.log(items);
-                         res.send(items);
-                     });
-                 });
-             });
-        });
-        */
-
 });
 
 function CheckLastValue() {
-
-    console.log("Checking...");
-    var retval = 0;
     var now = moment().subtract(3, 'minutes');
-
-
     db.collection('data').find().sort({
         start_time: -1
     }).limit(1).toArray(function (err, docs) {
 
         if (docs.length == 0) {
-            console.log("Need forced refresh");
             getValuesFromFG(193);
             getValuesFromFG(192);
             getValuesFromFG(177);
@@ -155,29 +129,21 @@ function CheckLastValue() {
         } else {
             var last_timestamp = moment(docs[0].start_time);
             if (last_timestamp < now) {
-                console.log("Need refresh");
                 getValuesFromFG(193);
                 getValuesFromFG(192);
                 getValuesFromFG(177);
                 getValuesFromFG(198);
             }
         };
-
-
     });
-
-    return retval;
 };
 
 function getValuesFromFG(var_id) {
 
-    console.log(moment().format());
-    console.log("Update of values for " + var_id + " started..");
-
     var req = unirest("GET", "https://api.fingrid.fi/v1/variable/" + var_id + "/events/json");
 
     req.query({
-        "start_time": moment().subtract(7, 'days').format(), // moment().startOf('hour').format(), //
+        "start_time": moment().subtract(1, 'days').format(), // moment().startOf('hour').format(), //
         "end_time": moment().format()
     });
 
@@ -191,8 +157,6 @@ function getValuesFromFG(var_id) {
             console.log(res.error)
         };
 
-        console.log(moment().format());
-        console.log("Values received for " + var_id + "..");
         var consumption = res.body;
 
         for (var j in consumption) {
@@ -217,11 +181,15 @@ function getValuesFromFG(var_id) {
             });
             */
         }
+        
         db.collection('data').insert(consumption, function (err, records) {
             if (err) throw err;
-            console.log(moment().format());
-            console.log("Record added for variable:" + var_id);
         });
-
+        
+        /* TODO
+        This logic have one big fail.. it insert duplicate values every time when new set has been fetch. Anyway this is much faster than update.
+        There we need to delete duplicate values
+        */
+        
     });
 };
