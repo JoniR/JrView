@@ -36,6 +36,7 @@ I started project by looking good template for user interface. I set few criteri
 * based on Bootstrap
 * working and looking good also in mobile phone
 * free
+
 After googling and testing a lot different templates with desktop and mobile, I chose Outline template by FreeHTML5.co.
 Graphs are Chart.js which was easy to use and enough good looking by default. Outline template used bunch of different glyphicons etc. However I chosen not to use them and use ionicons instead. This was biggest modification what I did regarding user interface, so not much :)
 
